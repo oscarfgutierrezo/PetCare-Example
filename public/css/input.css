@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.patient-data__inputs{
+    @apply border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none
+}
+.error-alert{
+    @apply text-red-600 font-normal;
+}
+
+.success-alert{
+    @apply text-emerald-600;
+}
+
+.patient__container{
+    @apply px-5 py-10 grid grid-cols-3 gap-y-7 border-b border-gray-300 sm:px-10
+}
+
+.patient__name{
+    @apply col-span-3 text-center text-3xl font-bold
+}
+
+.patient__info-container{
+    @apply col-span-3 md:col-span-2
+}
+
+.patient__buttons-container{
+    @apply col-span-3 flex flex-col gap-y-2 sm:flex-row sm:justify-evenly md:col-span-1 md:flex-col md:items-end md:justify-center
+}
+
+.btn{
+    @apply w-full py-1 flex justify-center items-center gap-3 font-medium text-white rounded-md sm:w-32 duration-150
+}
+
+.btn--blue{
+    @apply bg-blue hover:bg-dark-blue
+}
+
+.btn--red{
+    @apply bg-red-500 hover:bg-red-600
+}
+
+.animate{
+    animation: animatezoom 0.5s
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}

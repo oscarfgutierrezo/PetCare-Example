@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare - Medical Records</title>
+    <link rel="stylesheet" href="./public/css/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body class="container max-w-3xl mx-auto px-5 py-10 sm:px-10">
+    <header class="mb-10 w-full flex flex-col gap-7">
+        <div class="mx-auto h-16 flex">
+            <img class="object-contain" src="./public/images/Logo.png" alt="">
+        </div>
+        <nav>
+            <ul class="max-w-xl mx-auto flex justify-around text-lg sm:text-xl">
+                <li><a href="./index.html" class="text-gray-400 hover:text-blue duration-300">Add Patient</a></li>
+                <li><a href="./medicalRecords.html" class="text-blue font-medium border-b border-blue">Medical Records</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <p id="message-empty-patient-list" class="hidden pt-10 text-center text-xl text-gray-400">Patient List is empty<br>Add the first medical record</p>
+        <div id="patients-list"></div>
+        <div class="hidden fixed left-0 top-0 w-full h-screen pt-32 bg-[rgba(0,0,0,0.4)] z-10" id="remove-patient-modal">
+            <div class="animate w-4/5 max-w-sm mx-auto px-5 py-10 text-center bg-white rounded-lg">
+                <p class="pb-7 text-lg">Are you sure to remove this record?</p>
+                <div class="flex flex-col justify-evenly gap-y-2 sm:flex-row">
+                    <button class="btn btn--red" id="remove-btn-confirm">Remove</button>
+                    <button class="btn btn--blue">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./public/js/medicalRecords/app.js" type="module"></script>
+    <script src="./public/js/DB/DB.js"></script>
+</body>
+</html>

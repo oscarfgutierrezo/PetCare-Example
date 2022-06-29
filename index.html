@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare - Add Patient</title>
+    <link rel="stylesheet" href="./public/css/output.css">
+</head>
+<body class="container px-5 py-10">
+    <header class="mb-10 w-full flex flex-col gap-7">
+        <div class="mx-auto h-16 flex">
+            <img class="object-contain" src="./public/images/Logo.png" alt="">
+        </div>
+        <nav>
+            <ul class="max-w-xl mx-auto flex justify-around text-lg sm:text-xl">
+                <li><a href="./index.html" class="text-blue font-medium border-b border-blue">Add Patient</a></li>
+                <li><a href="./medicalRecords.html" class="text-gray-400 border-b border-transparent hover:text-blue duration-300">Medical Records</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form class="max-w-3xl mx-auto px-5 py-10 grid grid-cols-12 gap-5 bg-blue bg-opacity-20 rounded-md sm:px-10 sm:py-14" id="new-patient">
+            <h2 class="col-span-12 mb-7 text-center text-2xl sm:mb-10 sm:text-3xl">Patient Data</h2>
+            <div class="col-span-12 flex flex-col gap-y-1 sm:col-span-6">
+                <label for="">Pet Name:</label>
+                <input class="patient-data__inputs h-10" id="pet-name-input" type="text" name="petName" placeholder="Pet Name">
+            </div>
+            <div class="col-span-12 flex flex-col gap-y-1 sm:col-span-6">
+                <label for="">Owner Name:</label>
+                <input class="patient-data__inputs h-10" id="owner-name-input" type="text" name="ownerName" placeholder="Owner Name">
+            </div>
+            <div class="col-span-12 flex flex-col gap-y-1 sm:col-span-4">
+                <label for="">Phone:</label>
+                <input class="patient-data__inputs h-10" id="owner-phone-input" type="text" name="ownerPhone" placeholder="Owner Phone">
+            </div>
+            <div class="col-span-12 flex flex-col gap-y-1 sm:col-span-4">
+                <label for="">Date:</label>
+                <input class="patient-data__inputs h-10" id="date-input" type="date" name="date">
+            </div>
+            <div class="col-span-12 flex flex-col gap-y-1 sm:col-span-4">
+                <label for="">Time:</label>
+                <input class="patient-data__inputs h-10" id="time-input" type="time" name="time">
+            </div>
+            <div class="col-span-12 flex flex-col gap-y-1">
+                <label for="">Symptoms:</label>
+                <textarea class="patient-data__inputs" id="symptoms-input" name="symptoms" id="" cols="30" rows="10" placeholder="Describe the patient's symptoms"></textarea>
+            </div>
+            <button class="col-span-12 w-full mx-auto p-1 text-lg text-white bg-blue bg-opacity-80 rounded-md shadow-lg hover:bg-opacity-100 hover:shadow-none duration-300 sm:max-w-[200px]" id="form-btn" type="submit">Add Patient</button>
+        </form>
+    </main>
+
+    <script src="./public/js/formPatients/app.js" type="module"></script>
+    <script src="./public/js/DB/DB.js"></script>
+</body>
+</html>
