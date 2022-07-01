@@ -6,4 +6,5 @@ export const timeInput = document.querySelector('#time-input');
 export const symptomsInput = document.querySelector('#symptoms-input');
 
 export const form = document.querySelector('#new-patient');
-export const formBtn = document.querySelector('#form-btn');
+export const formBtnContainer = document.querySelector('#form-btn-container')
+export const formAddBtn = document.querySelector('#form-btn-add');

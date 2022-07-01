@@ -46,7 +46,10 @@
                 <label for="">Symptoms:</label>
                 <textarea class="patient-data__inputs" id="symptoms-input" name="symptoms" id="" cols="30" rows="10" placeholder="Describe the patient's symptoms"></textarea>
             </div>
-            <button class="col-span-12 w-full mx-auto p-1 text-lg text-white bg-blue bg-opacity-80 rounded-md shadow-lg hover:bg-opacity-100 hover:shadow-none duration-300 sm:max-w-[200px]" id="form-btn" type="submit">Add Patient</button>
+            <div class="pt-5 col-span-12 flex-col flex justify-center gap-x-10 gap-y-2 sm:flex-row" id="form-btn-container">
+                <button class="btn btn--blue" id="form-btn-add" type="submit">Add Patient</button>
+                <button class="btn btn--red" id="form-btn-reset" type="reset" >Reset</button>
+            </div>
         </form>
     </main>
 

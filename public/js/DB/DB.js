@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', createDB)
-
 let DB;
+
+createDB()
 
 function createDB() {
     const createDB  = window.indexedDB.open('patients', 1);
@@ -15,10 +15,12 @@ function createDB() {
     }
     
     createDB.onupgradeneeded = function(e) { 
+        console.log('hola')
+        
         const db = e.target.result;
         
         const objectStore = db.createObjectStore('patients', {
-            keyPath: 'id', // El id es individual de cada una de las citas creadas
+            keyPath: 'id',
             autoIncrement: true,
         })
 

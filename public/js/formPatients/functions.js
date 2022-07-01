@@ -1,13 +1,6 @@
 import { form } from "./selectors.js";
 import { ui } from "./app.js";
 
-/* export const mode = {
-    status: newPatient,
-    idEditPatient: null,
-} */
-
-
-
 const patientObj = {
     petName: '',
     ownerName: '',

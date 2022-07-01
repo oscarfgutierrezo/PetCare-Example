@@ -24,15 +24,15 @@
 }
 
 .patient__info-container{
-    @apply col-span-3 md:col-span-2
+    @apply col-span-3
 }
 
 .patient__buttons-container{
-    @apply col-span-3 flex flex-col gap-y-2 sm:flex-row sm:justify-evenly md:col-span-1 md:flex-col md:items-end md:justify-center
+    @apply col-span-3 flex flex-col gap-y-2 sm:flex-row sm:justify-evenly 
 }
 
 .btn{
-    @apply w-full py-1 flex justify-center items-center gap-3 font-medium text-white rounded-md sm:w-32 duration-150
+    @apply w-full h-8 py-1 flex justify-center items-center gap-3 font-medium text-white rounded-md sm:w-32 duration-150
 }
 
 .btn--blue{

@@ -7,7 +7,7 @@ import {
     dateInput,
     timeInput,
     symptomsInput,
-    form
+    form,
 } from './selectors.js'
 
 
