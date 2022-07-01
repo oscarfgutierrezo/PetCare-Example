@@ -15,10 +15,7 @@ function createDB() {
     }
     
     createDB.onupgradeneeded = function(e) { 
-        console.log('hola')
-        
         const db = e.target.result;
-        
         const objectStore = db.createObjectStore('patients', {
             keyPath: 'id',
             autoIncrement: true,

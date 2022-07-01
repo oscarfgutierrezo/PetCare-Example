@@ -1,5 +1,5 @@
 import { patients } from './app.js';
-import { messageEmptyPatientListDOM, patientsListDOM, removePatientModalDOM, removeModalBtnConfirmDOM, editPatientModalDOM, editPatientModalForm, editPatientModalBtnContainer} from './selectors.js';
+import { messageEmptyPatientListDOM, patientsListDOM, removePatientModalDOM, removeModalBtnConfirmDOM, editPatientModalDOM, editPatientModalForm, editPatientModalBtnContainer, inputSearchPatients} from './selectors.js';
 
 export class UI {
     constructor() {

@@ -25,7 +25,7 @@ export function newPatient(e) {
     addNewPatient(patientObj);
     form.reset();
     setTimeout(() => {
-        window.location.href = '../medicalRecords.html';
+        window.location.href = './medicalRecords.html'
     }, 2000);
 }
 

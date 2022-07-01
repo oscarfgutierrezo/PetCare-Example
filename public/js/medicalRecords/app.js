@@ -1,9 +1,10 @@
 import { Patients } from './patients.js';
 import { UI } from './ui.js';
-import {removeModalBtnCancelDOM, editPatientModalBtnCancelDOM} from './selectors.js';
+import {removeModalBtnCancelDOM, editPatientModalBtnCancelDOM, inputSearchPatients} from './selectors.js';
 
 export const patients = new Patients();
 export const ui = new UI();
+export let patientSearch
 
 class App {
     constructor() {
@@ -27,7 +28,11 @@ class App {
 
     initApp() {
         removeModalBtnCancelDOM.addEventListener("click", ui.hiddenModalRemove);
-        editPatientModalBtnCancelDOM.addEventListener('click', ui.hiddenModalEdit)
+        editPatientModalBtnCancelDOM.addEventListener('click', ui.hiddenModalEdit);
+        inputSearchPatients.addEventListener("input", (e) => {
+            patientSearch = (e.target.value).toLowerCase();
+            patients.readPatient()
+        })
     }
 }
 

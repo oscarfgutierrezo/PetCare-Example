@@ -1,10 +1,12 @@
-import { ui } from './app.js';
-import {editPatientModalDOM, editPatientModalBtnEditDOM, removePatientModalDOM, editPatientModalForm, petNameInput, ownerNameInput, ownerPhoneInput, dateInput, timeInput, symptomsInput} from './selectors.js';
+import { ui, patientSearch } from './app.js';
+import {editPatientModalDOM, editPatientModalBtnEditDOM, removePatientModalDOM, editPatientModalForm, petNameInput, ownerNameInput, ownerPhoneInput, dateInput, timeInput, symptomsInput, inputSearchPatients} from './selectors.js';
 
 let idPatient;
 
 export class Patients {
-    constructor() {}
+    constructor() {
+        inputSearchPatients.addEventListener('input', this.searchPatients)
+    }
     
     verifyLength() {
         const transaction = DB.transaction(['patients']);
@@ -26,11 +28,20 @@ export class Patients {
         patient.onsuccess = (e) => {
             const cursor = e.target.result
             if(cursor) {
-                ui.showPatient(cursor.value)
+                this.showPatients(cursor)
                 cursor.continue()
             } else {
                 console.log('There are no more patients')
             }
+        }
+    }
+
+    showPatients(cursor) {
+        const patientName = (cursor.value.petName).toLowerCase()
+        if(patientSearch === undefined || patientSearch ==='') {
+            ui.showPatient(cursor.value);
+        } else if(patientName.startsWith(patientSearch)) {
+            ui.showPatient(cursor.value)
         }
     }
 

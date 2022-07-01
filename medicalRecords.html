@@ -21,8 +21,15 @@
         </nav>
     </header>
     <main id="main">
+        <div class="search-patients__container relative flex w-full max-w-sm mx-auto">
+            <input class="w-full py-2 pl-5 pr-12 text-gray-700 leading-tight border border-gray-300 rounded-full focus:outline-blue/50 peer" id="search-patients__input" type="text" placeholder="Find a patient">
+            <i class="fa-solid fa-magnifying-glass absolute right-5 top-1/2 -translate-y-1/2 text-lg text-gray-300 peer-focus:text-blue"></i>
+        </div>
+        
         <p id="message-empty-patient-list" class="hidden pt-10 text-center text-xl text-gray-400">Patient List is empty<br>Add the first medical record</p>
+        
         <div id="patients-list"></div>
+        
         <div class="hidden fixed left-0 top-0 w-full h-screen items-center bg-[rgba(0,0,0,0.4)] z-10" id="remove-patient-modal">
             <div class="animate w-4/5 max-w-sm mx-auto px-5 py-10 text-center bg-white rounded-lg">
                 <p class="pb-7 text-lg">Are you sure to remove this record?</p>
@@ -32,8 +39,9 @@
                 </div>
             </div>
         </div>
+        
         <div class="hidden fixed left-0 top-0 w-full h-screen px-5 items-center bg-[rgba(0,0,0,0.4)] z-10 sm:px-10" id="edit-patient-modal">
-            <form class="animate max-w-3xl h-4/5 mx-auto px-5 py-10 grid grid-cols-12 gap-5 bg-white rounded-md sm:px-10 overflow-auto" id="edit-patient-modal__form">
+            <form class="animate max-w-3xl h-4/5 mx-auto px-5 py-10 grid grid-cols-12 gap-3 bg-white rounded-md sm:px-10 overflow-auto 2xl:h-fit" id="edit-patient-modal__form">
                 <div class="col-span-12 flex flex-col gap-y-1 sm:col-span-6">
                     <label for="">Pet Name:</label>
                     <input class="patient-data__inputs h-10" id="pet-name-input" stype="text" name="petName" placeholder="Pet Name">
@@ -59,7 +67,7 @@
                     <textarea class="patient-data__inputs" id="symptoms-input" name="symptoms" id="" cols="30" rows="10" placeholder="Describe the patient's symptoms"></textarea>
                 </div>
                 <div class="pt-5 col-span-12 flex-col flex justify-center gap-x-10 gap-y-2 sm:flex-row" id="edit-patient-modal__buttons-container">
-                    <button class="btn btn--blue" id="edit-patient-modal__btn-edit" type="submit">Edit</button>
+                    <button class="btn btn--blue" id="edit-patient-modal__btn-edit" type="submit">Save</button>
                     <button class="btn btn--red" id="edit-patient-modal__btn-cancel" type="button">Cancel</button>
                 </div>
             </form>

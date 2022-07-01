@@ -20,3 +20,6 @@ export const dateInput = document.querySelector('#date-input');
 export const timeInput = document.querySelector('#time-input');
 export const symptomsInput = document.querySelector('#symptoms-input');
 export const editPatientModalBtnContainer = document.querySelector('#edit-patient-modal__buttons-container')
+
+// Buscador
+export const inputSearchPatients = document.querySelector('#search-patients__input');
