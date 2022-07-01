@@ -1,5 +1,5 @@
 import { patients } from './app.js';
-import { messageEmptyPatientListDOM, patientsListDOM, removePatientModalDOM, removeModalBtnConfirmDOM, editPatientModalDOM,} from './selectors.js';
+import { messageEmptyPatientListDOM, patientsListDOM, removePatientModalDOM, removeModalBtnConfirmDOM, editPatientModalDOM, editPatientModalForm, editPatientModalBtnContainer} from './selectors.js';
 
 export class UI {
     constructor() {
@@ -92,7 +92,7 @@ export class UI {
                 patientEditButtonDOM.classList.add('btn', 'btn--blue');
                 patientEditButtonDOM.textContent = 'Edit'
                 patientEditButtonDOM.dataset.patient = id;
-                patientEditButtonDOM.onclick = () => patients.editPatient(id);
+                patientEditButtonDOM.onclick = () => patients.getPatient(id);
 
                 const patientEditButtonIconDOM = document.createElement('i');
                 patientEditButtonIconDOM.classList.add('fa-solid', 'fa-pen', 'text-xs');
@@ -140,5 +140,22 @@ export class UI {
 
     hiddenModalEdit() {
         editPatientModalDOM.classList.replace('flex', 'hidden');
+    }
+
+    showalert(message, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('col-span-12', 'text-center', 'text-lg');
+        editPatientModalBtnContainer.classList.remove('pt-5')
+        messageDiv.textContent = message;
+        if(type) {
+            messageDiv.classList.add('text-red-600')
+        } else {
+            messageDiv.classList.add('text-emerald-600')
+        }
+        editPatientModalForm.insertBefore(messageDiv, editPatientModalBtnContainer)
+        setTimeout(() => {
+            messageDiv.remove()
+            editPatientModalBtnContainer.classList.add('pt-5')
+        }, 2500);
     }
 }

@@ -1,6 +1,6 @@
 import { Patients } from './patients.js';
 import { UI } from './ui.js';
-import { removeModalBtnConfirmDOM, removeModalBtnCancelDOM, editPatientModalBtnCancelDOM} from './selectors.js';
+import {removeModalBtnCancelDOM, editPatientModalBtnCancelDOM} from './selectors.js';
 
 export const patients = new Patients();
 export const ui = new UI();
