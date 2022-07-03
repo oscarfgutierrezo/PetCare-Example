@@ -1,17 +1,18 @@
-import { newPatient, patientData } from './functions.js';
+import { Patients } from './patients.js';
 import { UI } from './ui.js';
 import {
-    petNameInput,
-    ownerNameInput,
-    ownerPhoneInput,
-    dateInput,
-    timeInput,
-    symptomsInput,
-    form,
+    petNameInputDOM,
+    ownerNameInputDOM,
+    ownerPhoneInputDOM,
+    dateInputDOM,
+    timeInputDOM,
+    symptomsInputDOM,
+    newPatientFormDOM,
 } from './selectors.js'
 
 
-export const ui = new UI()
+export const ui = new UI();
+export const patient = new Patients();
 
 
 class App {
@@ -22,13 +23,13 @@ class App {
     }
 
     initApp() {
-        petNameInput.addEventListener("change", patientData);
-        ownerNameInput.addEventListener("change", patientData);
-        ownerPhoneInput.addEventListener("change", patientData);
-        dateInput.addEventListener("change", patientData);
-        timeInput.addEventListener("change", patientData);
-        symptomsInput.addEventListener("change", patientData);
-        form.addEventListener('submit', newPatient)
+        petNameInputDOM.addEventListener("change", patient.catchPatientData);
+        ownerNameInputDOM.addEventListener("change", patient.catchPatientData);
+        ownerPhoneInputDOM.addEventListener("change", patient.catchPatientData);
+        dateInputDOM.addEventListener("change", patient.catchPatientData);
+        timeInputDOM.addEventListener("change", patient.catchPatientData);
+        symptomsInputDOM.addEventListener("change", patient.catchPatientData);
+        newPatientFormDOM.addEventListener('submit', patient.newPatient)
     }
 
     conectDB() {

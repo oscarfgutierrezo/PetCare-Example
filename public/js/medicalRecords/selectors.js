@@ -1,5 +1,5 @@
-export const patientsListDOM = document.querySelector('#patients-list');
-export const messageEmptyPatientListDOM = document.querySelector('#message-empty-patient-list');
+export const patientsListContainerDOM = document.querySelector('#patients-list__Container');
+export const emptyPatientListMessageDOM = document.querySelector('#empty-patient-list-message');
 
 // Modal para confirmar que se desea eliminar el paciente
 export const removePatientModalDOM = document.querySelector('#remove-patient-modal');
@@ -8,18 +8,20 @@ export const removeModalBtnCancelDOM = document.querySelector('#remove-patient-m
 
 //Modal con el formulario para editar el paciente
 export const editPatientModalDOM = document.querySelector('#edit-patient-modal');
-export const editPatientModalBtnEditDOM = document.querySelector('#edit-patient-modal__btn-edit');
-export const editPatientModalBtnCancelDOM = document.querySelector('#edit-patient-modal__btn-cancel');
+    
+    // Formulario
+    export const editPatientModalFormDOM = document.querySelector('#edit-patient-modal__form')
+    export const petNameInputDOM = document.querySelector('#edit-patient-modal__pet-name-input');
+    export const ownerNameInputDOM = document.querySelector('#edit-patient-modal__owner-name-input');
+    export const ownerPhoneInputDOM = document.querySelector('#edit-patient-modal__owner-phone-input');
+    export const dateInputDOM = document.querySelector('#edit-patient-modal__date-input');
+    export const timeInputDOM = document.querySelector('#edit-patient-modal__time-input');
+    export const symptomsInputDOM = document.querySelector('#edit-patient-modal__symptoms-input');
 
-// Formulario
-export const editPatientModalForm = document.querySelector('#edit-patient-modal__form')
-export const petNameInput = document.querySelector('#pet-name-input');
-export const ownerNameInput = document.querySelector('#owner-name-input');
-export const ownerPhoneInput = document.querySelector('#owner-phone-input');
-export const dateInput = document.querySelector('#date-input');
-export const timeInput = document.querySelector('#time-input');
-export const symptomsInput = document.querySelector('#symptoms-input');
-export const editPatientModalBtnContainer = document.querySelector('#edit-patient-modal__buttons-container')
+    // Botones
+    export const editPatientModalBtnsContainerDOM = document.querySelector('#edit-patient-modal__btns-container')
+    export const editPatientModalBtnSaveDOM = document.querySelector('#edit-patient-modal__btn-save');
+    export const editPatientModalBtnCancelDOM = document.querySelector('#edit-patient-modal__btn-cancel');
 
 // Buscador
-export const inputSearchPatients = document.querySelector('#search-patients__input');
+export const inputSearchPatientsDOM = document.querySelector('#search-patients__input');

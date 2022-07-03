@@ -1,13 +1,15 @@
+import { patient } from './app.js';
 import { ui, patientSearch } from './app.js';
-import {editPatientModalDOM, editPatientModalBtnEditDOM, removePatientModalDOM, editPatientModalForm, petNameInput, ownerNameInput, ownerPhoneInput, dateInput, timeInput, symptomsInput, inputSearchPatients} from './selectors.js';
+import {editPatientModalDOM, editPatientModalBtnSaveDOM, removePatientModalDOM, editPatientModalFormDOM, petNameInputDOM, ownerNameInputDOM, ownerPhoneInputDOM, dateInputDOM, timeInputDOM, symptomsInputDOM, inputSearchPatientsDOM} from './selectors.js';
 
-let idPatient;
+let idEditPatient;
 
 export class Patients {
     constructor() {
-        inputSearchPatients.addEventListener('input', this.searchPatients)
+        
     }
     
+
     verifyLength() {
         const transaction = DB.transaction(['patients']);
         const objectStore = transaction.objectStore('patients');
@@ -21,7 +23,7 @@ export class Patients {
 
     readPatient() {
         ui.clearPatientContainer()
-        editPatientModalForm.reset()
+        editPatientModalFormDOM.reset()
         const transaction = DB.transaction(['patients']);
         const objectStore = transaction.objectStore('patients');
         const patient = objectStore.openCursor();
@@ -31,7 +33,7 @@ export class Patients {
                 this.showPatients(cursor)
                 cursor.continue()
             } else {
-                console.log('There are no more patients')
+                console.log('No hay más pacientes')
             }
         }
     }
@@ -45,8 +47,9 @@ export class Patients {
         }
     }
 
-    removePatient(id) {
-        /* const id = Number(e.target.dataset.patient) */
+    removePatient(e) {
+        const id = Number(e.target.dataset.patientId);
+        
         const transaction = DB.transaction(['patients'], 'readwrite');
         const objectStore = transaction.objectStore('patients');
         objectStore.delete(id);
@@ -56,14 +59,14 @@ export class Patients {
         transaction.oncomplete = () => {
             console.log('paciente eliminado con éxito');
             removePatientModalDOM.classList.replace('flex', 'hidden');
-            this.readPatient();
-            this.verifyLength();
+            patient.readPatient();
+            patient.verifyLength();
         }
     }
 
     getPatient(id) {
         editPatientModalDOM.classList.replace('hidden', 'flex');
-        idPatient = id;
+        idEditPatient = id;
         const transaction = DB.transaction(['patients']);
         const objectStore = transaction.objectStore('patients');
         const patient = objectStore.openCursor();
@@ -75,39 +78,36 @@ export class Patients {
                 }
                 cursor.continue()
             } else {
-                console.log('There are no more patients')
+                console.log('No hay más pacientes')
             }
-        }
-        editPatientModalBtnEditDOM.onclick = (e) => {
-            e.preventDefault();
-            this.toUpdatePatient();
         }
     }
 
     completeForm(patient) {
         const {petName, ownerName, ownerPhone, date, time, symptoms} = patient;
-        petNameInput.value = petName;
-        ownerNameInput.value = ownerName;
-        ownerPhoneInput.value = ownerPhone;
-        dateInput.value = date;
-        timeInput.value = time;
-        symptomsInput.value = symptoms;
+        petNameInputDOM.value = petName;
+        ownerNameInputDOM.value = ownerName;
+        ownerPhoneInputDOM.value = ownerPhone;
+        dateInputDOM.value = date;
+        timeInputDOM.value = time;
+        symptomsInputDOM.value = symptoms;
     }
 
-    toUpdatePatient() {
-        if (petNameInput.value === '' || ownerNameInput.value === '' || ownerPhoneInput.value === '' || dateInput.value === '' || timeInput.value === '' || symptomsInput.value === '') {
+    toUpdatePatient(e) {
+        e.preventDefault();
+        if (petNameInputDOM.value === '' || ownerNameInputDOM.value === '' || ownerPhoneInputDOM.value === '' || dateInputDOM.value === '' || timeInputDOM.value === '' || symptomsInputDOM.value === '') {
             ui.showalert('All fields are required', 'error');
             return;
         }
 
         const updatedPatient = {
-            petName: petNameInput.value,
-            ownerName: ownerNameInput.value,
-            ownerPhone: ownerPhoneInput.value,
-            date: dateInput.value,
-            time: timeInput.value,
-            symptoms: symptomsInput.value,
-            id: idPatient
+            petName: petNameInputDOM.value,
+            ownerName: ownerNameInputDOM.value,
+            ownerPhone: ownerPhoneInputDOM.value,
+            date: dateInputDOM.value,
+            time: timeInputDOM.value,
+            symptoms: symptomsInputDOM.value,
+            id: idEditPatient
         }
 
         const transaction = DB.transaction(['patients'], 'readwrite');
@@ -115,7 +115,7 @@ export class Patients {
         objectStore.put(updatedPatient);
         transaction.oncomplete = () => {
             ui.showalert('Patient edited successfully');
-            this.readPatient();
+            patient.readPatient();
             setTimeout(() => {
                 editPatientModalDOM.classList.replace('flex', 'hidden');
             }, 2500);

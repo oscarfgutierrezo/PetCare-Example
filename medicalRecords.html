@@ -21,14 +21,14 @@
         </nav>
     </header>
     <main id="main">
-        <div class="search-patients__container relative flex w-full max-w-sm mx-auto">
+        <div class="search-patients relative flex w-full max-w-sm mx-auto">
             <input class="w-full py-2 pl-5 pr-12 text-gray-700 leading-tight border border-gray-300 rounded-full focus:outline-blue/50 peer" id="search-patients__input" type="text" placeholder="Find a patient">
             <i class="fa-solid fa-magnifying-glass absolute right-5 top-1/2 -translate-y-1/2 text-lg text-gray-300 peer-focus:text-blue"></i>
         </div>
         
-        <p id="message-empty-patient-list" class="hidden pt-10 text-center text-xl text-gray-400">Patient List is empty<br>Add the first medical record</p>
+        <p id="empty-patient-list-message" class="hidden pt-10 text-center text-xl text-gray-400">Patient List is empty<br>Add the first medical record</p>
         
-        <div id="patients-list"></div>
+        <div id="patients-list__Container"></div>
         
         <div class="hidden fixed left-0 top-0 w-full h-screen items-center bg-[rgba(0,0,0,0.4)] z-10" id="remove-patient-modal">
             <div class="animate w-4/5 max-w-sm mx-auto px-5 py-10 text-center bg-white rounded-lg">
@@ -44,30 +44,30 @@
             <form class="animate max-w-3xl h-4/5 mx-auto px-5 py-10 grid grid-cols-12 gap-3 bg-white rounded-md sm:px-10 overflow-auto 2xl:h-fit" id="edit-patient-modal__form">
                 <div class="col-span-12 flex flex-col gap-y-1 sm:col-span-6">
                     <label for="">Pet Name:</label>
-                    <input class="patient-data__inputs h-10" id="pet-name-input" stype="text" name="petName" placeholder="Pet Name">
+                    <input class="patient-data__inputs h-10" id="edit-patient-modal__pet-name-input" stype="text" name="petName" placeholder="Pet Name">
                 </div>
                 <div class="col-span-12 flex flex-col gap-y-1 sm:col-span-6">
                     <label for="">Owner Name:</label>
-                    <input class="patient-data__inputs h-10" id="owner-name-input" type="text" name="ownerName" placeholder="Owner Name">
+                    <input class="patient-data__inputs h-10" id="edit-patient-modal__owner-name-input" type="text" name="ownerName" placeholder="Owner Name">
                 </div>
                 <div class="col-span-12 flex flex-col gap-y-1 sm:col-span-4">
                     <label for="">Phone:</label>
-                    <input class="patient-data__inputs h-10" id="owner-phone-input" type="text" name="ownerPhone" placeholder="Owner Phone">
+                    <input class="patient-data__inputs h-10" id="edit-patient-modal__owner-phone-input" type="text" name="ownerPhone" placeholder="Owner Phone">
                 </div>
                 <div class="col-span-12 flex flex-col gap-y-1 sm:col-span-4">
                     <label for="">Date:</label>
-                    <input class="patient-data__inputs h-10" id="date-input" type="date" name="date">
+                    <input class="patient-data__inputs h-10" id="edit-patient-modal__date-input" type="date" name="date">
                 </div>
                 <div class="col-span-12 flex flex-col gap-y-1 sm:col-span-4">
                     <label for="">Time:</label>
-                    <input class="patient-data__inputs h-10" id="time-input" type="time" name="time">
+                    <input class="patient-data__inputs h-10" id="edit-patient-modal__time-input" type="time" name="time">
                 </div>
                 <div class="col-span-12 flex flex-col gap-y-1">
                     <label for="">Symptoms:</label>
-                    <textarea class="patient-data__inputs" id="symptoms-input" name="symptoms" id="" cols="30" rows="10" placeholder="Describe the patient's symptoms"></textarea>
+                    <textarea class="patient-data__inputs" id="edit-patient-modal__symptoms-input" name="symptoms" id="" cols="30" rows="10" placeholder="Describe the patient's symptoms"></textarea>
                 </div>
-                <div class="pt-5 col-span-12 flex-col flex justify-center gap-x-10 gap-y-2 sm:flex-row" id="edit-patient-modal__buttons-container">
-                    <button class="btn btn--blue" id="edit-patient-modal__btn-edit" type="submit">Save</button>
+                <div class="pt-5 col-span-12 flex-col flex justify-center gap-x-10 gap-y-2 sm:flex-row" id="edit-patient-modal__btns-container">
+                    <button class="btn btn--blue" id="edit-patient-modal__btn-save" type="submit">Save</button>
                     <button class="btn btn--red" id="edit-patient-modal__btn-cancel" type="button">Cancel</button>
                 </div>
             </form>

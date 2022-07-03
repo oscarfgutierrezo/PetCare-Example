@@ -1,5 +1,6 @@
-import { patients } from './app.js';
-import { messageEmptyPatientListDOM, patientsListDOM, removePatientModalDOM, removeModalBtnConfirmDOM, editPatientModalDOM, editPatientModalForm, editPatientModalBtnContainer, inputSearchPatients} from './selectors.js';
+import { patient } from './app.js';
+
+import { emptyPatientListMessageDOM, patientsListContainerDOM, removePatientModalDOM, removeModalBtnConfirmDOM, editPatientModalDOM, editPatientModalFormDOM, editPatientModalBtnsContainerDOM} from './selectors.js';
 
 export class UI {
     constructor() {
@@ -7,11 +8,11 @@ export class UI {
     }
 
     showEmptylistMessage() {
-        messageEmptyPatientListDOM.classList.replace('hidden', 'block')
+        emptyPatientListMessageDOM.classList.replace('hidden', 'block')
     }
 
-    showPatient(patient) {        
-        const {petName, ownerName, ownerPhone, date, time, symptoms, id} = patient;
+    showPatient(patientInfo) {        
+        const {petName, ownerName, ownerPhone, date, time, symptoms, id} = patientInfo;
         
         // Contenedor del paciente
         const patientContainerDOM = document.createElement('div');
@@ -92,7 +93,7 @@ export class UI {
                 patientEditButtonDOM.classList.add('btn', 'btn--blue');
                 patientEditButtonDOM.textContent = 'Edit'
                 patientEditButtonDOM.dataset.patient = id;
-                patientEditButtonDOM.onclick = () => patients.getPatient(id);
+                patientEditButtonDOM.onclick = () => patient.getPatient(id);
 
                 const patientEditButtonIconDOM = document.createElement('i');
                 patientEditButtonIconDOM.classList.add('fa-solid', 'fa-pen', 'text-xs');
@@ -118,20 +119,18 @@ export class UI {
         patientContainerDOM.appendChild(patientButtonsDOM);
 
         // Agregar contenedor del paciente al DOM
-        patientsListDOM.appendChild(patientContainerDOM);
+        patientsListContainerDOM.appendChild(patientContainerDOM);
     }
 
     clearPatientContainer() {
-        while(patientsListDOM.firstChild) {
-            patientsListDOM.removeChild(patientsListDOM.firstChild);
+        while(patientsListContainerDOM.firstChild) {
+            patientsListContainerDOM.removeChild(patientsListContainerDOM.firstChild);
         }
     }
 
     showModalRemove(id) {
         removePatientModalDOM.classList.replace('hidden', 'flex');
-        removeModalBtnConfirmDOM.onclick = () => {
-            patients.removePatient(id)
-        }
+        removeModalBtnConfirmDOM.dataset.patientId = id;
     }
 
     hiddenModalRemove() {
@@ -145,17 +144,17 @@ export class UI {
     showalert(message, type) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('col-span-12', 'text-center', 'text-lg');
-        editPatientModalBtnContainer.classList.remove('pt-5')
+        editPatientModalBtnsContainerDOM.classList.remove('pt-5')
         messageDiv.textContent = message;
         if(type) {
             messageDiv.classList.add('text-red-600')
         } else {
             messageDiv.classList.add('text-emerald-600')
         }
-        editPatientModalForm.insertBefore(messageDiv, editPatientModalBtnContainer)
+        editPatientModalFormDOM.insertBefore(messageDiv, editPatientModalBtnsContainerDOM)
         setTimeout(() => {
             messageDiv.remove()
-            editPatientModalBtnContainer.classList.add('pt-5')
+            editPatientModalBtnsContainerDOM.classList.add('pt-5')
         }, 2500);
     }
 }

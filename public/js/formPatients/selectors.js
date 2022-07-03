@@ -1,10 +1,10 @@
-export const petNameInput = document.querySelector('#pet-name-input');
-export const ownerNameInput = document.querySelector('#owner-name-input');
-export const ownerPhoneInput = document.querySelector('#owner-phone-input');
-export const dateInput = document.querySelector('#date-input');
-export const timeInput = document.querySelector('#time-input');
-export const symptomsInput = document.querySelector('#symptoms-input');
+export const newPatientFormDOM = document.querySelector('#new-patient-form');
 
-export const form = document.querySelector('#new-patient');
-export const formBtnContainer = document.querySelector('#form-btn-container')
-export const formAddBtn = document.querySelector('#form-btn-add');
+export const petNameInputDOM = document.querySelector('#new-patient-form__pet-name-input');
+export const ownerNameInputDOM = document.querySelector('#new-patient-form__owner-name-input');
+export const ownerPhoneInputDOM = document.querySelector('#new-patient-form__owner-phone-input');
+export const dateInputDOM = document.querySelector('#new-patient-form__date-input');
+export const timeInputDOM = document.querySelector('#new-patient-form__time-input');
+export const symptomsInputDOM = document.querySelector('#new-patient-form__symptoms-input');
+
+export const formBtnsContainerDOM = document.querySelector('#new-patient-form__btns-container')
