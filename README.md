@@ -1,3 +1,3 @@
-# oscarfgutierrezo-PetCare-Example
+#PetCare-Example
 
-[URL](https://oscarfgutierrezo.github.io/oscarfgutierrezo-PetCare-Example/)
+[URL](https://oscarfgutierrezo.github.io/PetCare-Example/)
